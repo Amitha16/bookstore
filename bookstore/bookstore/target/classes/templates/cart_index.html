@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Product Management</title>
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+ 
+</head>
+<body>
+ <header>
+        <div class="media">
+            <img class="mr-3" src="https://i.pinimg.com/564x/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.jpg" alt="Generic placeholder image" style="width: 75px; height: 75px;">
+            <div class="media-body">
+              <h1 class="mt-0">ALL ABOUT BOOKS</h1>
+            </div>
+          </div>
+      </header>
+ <div class="container my-2">
+ <h1>Cart</h1> 
+ 	<a th:href = "@{/shop}" class="btn btn-primary btn-sm mb-3">Shop More</a>
+ 	<table border="1" class = "table table-striped table-responsive-md">
+   <thead>
+    <tr>
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="item : ${listItems}">
+     <td th:text="${item.productId}"></td>
+     <td th:text="${item.productName}"></td>
+     <td th:text="${item.productPrice}"></td>
+     <td><a th:href="@{/cart/removeAllItems/{cartId}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+   </tbody>
+  </table>
+  <a th:href="@{/customer/checkout}" class="btn btn-primary">Proceed to Checkout</a>
+  </div>
+</body>
+</html>

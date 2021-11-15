@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Shop</title>
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+ 
+</head>
+<body>
+ <header>
+        <div class="media">
+            <img class="mr-3" src="https://i.pinimg.com/564x/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.jpg" alt="Generic placeholder image" style="width: 75px; height: 75px;">
+            <div class="media-body">
+              <h1 class="mt-0">ALL ABOUT BOOKS</h1>
+            </div>
+          </div>
+      </header>
+      <ul class="nav">
+        <li class="nav-item">
+        	  <a class="nav-link active" th:href="@{/home}">Home</a>
+        </li>        
+        <li class="nav-item">
+          	<a class="nav-link" th:href="@{/contactus}">Contact Us</a>
+        </li>
+        <li class="nav-item">
+           	<a class="nav-link" th:href="@{/admin/logout}">Logout</a>
+        </li>
+    </ul>
+      <div class="container my-2">
+	<form th:action="@{/search}">
+  		<input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by Book Name & Category" size="50" />
+  		<input type="submit" class="btn btn-info" name="Search">
+
+  	</form>
+  	<form th:action="@{/shopProduct}">
+  	  		<button type="submit" class="btn btn-info">Reset</button>
+  	</form>
+
+ 	  <table border="1" class="table table-image">
+ 	<thead>
+    <tr>
+     <th>Product ID</th>
+     <th>Book Name</th>
+     <th>Author</th>
+     <th>Category Name</th>
+     <th>Book Description</th>
+     <th>Price</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="product : ${listProducts}">
+     <td th:text="${product.productId}"></td>
+     <td th:text="${product.productName}"></td>
+     <td th:text="${product.productAuthor}"></td>
+     <td th:text="${product.productCategory}"></td>
+     <td th:text="${product.productDescription}"></td>
+     <td th:text="${product.productPrice}"></td>
+     
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ </body>
+</html>     

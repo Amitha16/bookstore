@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Page</title>
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+ 
+</head>
+<body>
+ <header>
+        <div class="media">
+            <img class="mr-3" src="https://i.pinimg.com/564x/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.jpg" alt="Generic placeholder image" style="width: 75px; height: 75px;">
+            <div class="media-body">
+              <h1 class="mt-0">ALL ABOUT BOOKS</h1>
+            </div>
+          </div>
+      </header>
+      
+          <div class="container text-center">
+        <h3>Welcome admin</h3>
+        <h4><a th:href="@{/productManagement}">Manage Products</a></h4>
+        <h4><a th:href="@{/admin/logout}">Logout</a></h4>
+    </div>
+     
+</body>
+</html>

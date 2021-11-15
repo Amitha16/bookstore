@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+	 <header>
+        <div class="media">
+            <img class="mr-3" src="https://i.pinimg.com/564x/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.jpg" alt="Generic placeholder image" style="width: 75px; height: 75px;">
+            <div class="media-body">
+              <h1 class="mt-0">ALL ABOUT BOOKS</h1>
+            </div>
+          </div>
+      </header>
+    <div class="container">
+        <h1>Product Management</h1>
+        <hr>
+        <h2>Save Product</h2>
+
+        <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="POST">
+            			
+			<input type="text" th:field="*{productName}" placeholder="Product Name" class="form-control mb-4 col-4">
+
+			<input type="text" th:field="*{productAuthor}" placeholder="Product Author" class="form-control mb-4 col-4">
+			
+            <input type="text" th:field="*{ProductCategory}" placeholder="Category Name" class="form-control mb-4 col-4">
+
+            <input type="text" th:field="*{productDescription}" placeholder="Product Description" class="form-control mb-4 col-4">
+			
+			<input type="text" th:field="*{productPrice}" placeholder="Product Price" class="form-control mb-4 col-4">
+
+            <button type="submit" class="btn btn-info col-2"> Save Product</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/productManagement}"> Back to Product List</a>
+    </div>
+</body>
+
+</html>
